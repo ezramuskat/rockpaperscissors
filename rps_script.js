@@ -84,7 +84,7 @@ function updateScore(result) {
         case 'loss':
             results.textContent = 'You lost that round!'
             computerScore += 1;
-            playerScoreElem.textContent = computerScore;
+            computerScoreElem.textContent = computerScore;
             break;
 
         case 'tie':
