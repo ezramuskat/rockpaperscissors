@@ -5,93 +5,19 @@
         <meta charset="UTF-8"/>
     </head>
     <body>
-        <script>
-            // Your JavaScript goes here!
-            function playRound(playerSelection, computerSelection) {
-                let ps = playerSelection.toLowerCase()
-                let r = 'rock'
-                let p = 'paper'
-                let s = 'scissors'
-                let tieMessage = 'tie'
-                let winMessage = 'win'
-                let loseMessage = 'loss'
-                switch (ps) {
-                    case r:
-                        if (computerSelection == p) {
-                            return loseMessage
-                        } else if (computerSelection == s) {
-                            return winMessage
-                        } else {
-                            return tieMessage
-                        }
-                        break;
+        <div id="container">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
 
-                    case p:
-                        if (computerSelection == r) {
-                            return winMessage
-                        } else if (computerSelection == s) {
-                            return loseMessage
-                        } else {
-                            return tieMessage
-                        }
-
-                    case s:
-                        if (computerSelection == r) {
-                            return loseMessage
-                        } else if (computerSelection == p) {
-                            return winMessage
-                        } else {
-                            return tieMessage
-                        }
-                
-                    default:
-                        return "bop"
-                        break;
-                }
-            }
-            function computerPlay() {
-                let determine =(Math.random() * 3)
-                if (determine <= 1) {
-                    return "rock"
-                } else if (determine <= 2) {
-                    return "scissors"
-                } else if (determine <= 3) {
-                    return "paper"
-                } else {
-                    return "error"
-                }
-            }
-            function game(){
-                let playerScore = 0
-                let computerScore = 0
-                for (let i = 0; i < 5; i++) {
-                    let playerSelection = prompt()
-                    let computerSelection = computerPlay()
-                    let result = playRound(playerSelection, computerSelection)
-                    if (result == 'win') {
-                        console.log(result)
-                        console.log('win')
-                        playerScore+=1
-                    } else if (result == 'loss') {
-                        console.log(result)
-                        console.log('loss')
-                        computerScore+=1
-                    } else {
-                        console.log(result)
-                        console.log('tie')
-                    }
-                    
-                }
-                if (playerScore > computerScore) {
-                    console.log('You won')
-                } else  if (playerScore < computerScore) {
-                    console.log('You lost')
-                } else {
-                    console.log('You tied')
-                }
-            }
-            game()
-            
-        </script>
+        <div id="scoreTracker">
+            <p id="results"></p>
+            <p>Your score is:</p>
+            <p id="playerScore">0</p>
+            <p>The computer's score is:</p>
+            <p id="computerScore">0</p>
+        </div>
+        <script src="rps_script.js"> </script>
     </body>
 </html>
