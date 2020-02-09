@@ -1,10 +1,12 @@
 // Your JavaScript goes here!
 let computerScore = 0;
 let playerScore = 0;
+let rounds = 0;
 
 const results = document.querySelector('#results');
 const playerScoreElem = document.querySelector('#playerScore');
 const computerScoreElem = document.querySelector('#computerScore');
+const victory = document.querySelector('#victory');
 
 const buttons = document.querySelectorAll('button');
 
@@ -71,6 +73,7 @@ function computerPlay() {
 }
 
 function updateScore(result) {
+    rounds += 1;
     switch (result) {
         case 'win':
             results.textContent = 'You won that round!'
@@ -90,6 +93,13 @@ function updateScore(result) {
     
         default:
             break;
+    }
+    if(rounds == 5) {
+        if (playerScore > computerScore) {
+            victory.textContent = 'You won!'
+        } else {
+            victory.textContent = 'You lost!'
+        }
     }
 }
 
